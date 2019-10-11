@@ -93,7 +93,9 @@ while camera.isOpened():
 
         # get the coutours
         thresh1 = copy.deepcopy(thresh)
-        _,contours, hierarchy = cv2.findContours(thresh1, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        contours, hierarchy = cv2.findContours(thresh1, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        #For older versions of OpenCV:
+        # _,contours, hierarchy = cv2.findContours(thresh1, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE) 
         length = len(contours)
         maxArea = -1
         if length > 0:
